@@ -1,0 +1,66 @@
+@import "assets/scss/theme.scss";
+
+/* You can add global styles to this file, and also import other style files */
+body { 
+    font-family: "Open Sans", sans-serif; 
+    font-weight: 300;
+    background-color: #f8f8f8;
+    color: #222222;
+}
+
+.bg-black {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.bg-black th {
+    border-color: #222222;
+}
+
+.content-wrapper {
+    padding: 1.5rem;
+}
+
+.user-heading {
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.user-heading h1 {
+    margin-bottom: 0.5rem;
+}
+
+.page-header {
+    margin-bottom: 0;
+}
+
+.page-header-title {
+    padding-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.page-header-title h1{
+    margin: 0;
+    padding: 0;
+    color: #222222;
+}
+
+.page-header-buttons {
+    margin-bottom: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .page-header {
+        margin-bottom: 0;
+    }
+
+    .page-header-buttons {
+        margin-bottom: 0;
+        padding-left: 1rem;
+        text-align: right;
+    }
+}

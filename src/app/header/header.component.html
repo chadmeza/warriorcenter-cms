@@ -1,0 +1,32 @@
+<header>
+    <nav id="navigation-main" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <div class="container navigation-wrapper">
+            <a class="navbar-brand" routerLink="/"><i class="fas fa-cogs"></i> Content Manager</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" *ngIf="userIsAuthenticated">
+                        <a class="nav-link" routerLink="/sermons" routerLinkActive="active">Sermons</a>
+                    </li>
+                    <li class="nav-item" *ngIf="userIsAuthenticated">
+                        <a class="nav-link" routerLink="/events" routerLinkActive="active">Events</a>
+                    </li>
+                    <li class="nav-item" *ngIf="userIsAuthenticated">
+                        <a class="nav-link" routerLink="/users/change-password" routerLinkActive="active">Change Password</a>
+                    </li>
+                    <li class="nav-item" *ngIf="!userIsAuthenticated">
+                        <a class="nav-link" routerLink="/users/signup" routerLinkActive="active">Signup</a>
+                    </li>
+                    <li class="nav-item" *ngIf="!userIsAuthenticated">
+                        <a class="nav-link" routerLink="/users/login" routerLinkActive="active">Login</a>
+                    </li>
+                    <li class="nav-item" *ngIf="userIsAuthenticated">
+                        <a class="nav-link" href="#" (click)="onLogout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

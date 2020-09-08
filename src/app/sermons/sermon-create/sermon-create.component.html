@@ -1,0 +1,71 @@
+<section id="sermon-create">
+    <div class="container">
+        <div class="row" *ngIf="isLoading">
+            <div class="col-md-12 text-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="!isLoading">
+            <div class="col-md-9 page-header-title align-self-center">
+                <h1>New Sermon</h1>
+            </div>
+            <div class="col-md-3 page-header-buttons text-right align-self-center">
+                <button type="button" class="btn btn-outline-dark btn-block" routerLink="/sermons"><i class="fas fa-ban"></i> Cancel</button>
+            </div>
+        </div>
+        <div class="row" *ngIf="!isLoading">
+            <div class="col-md-12 content-wrapper rounded-lg bg-white shadow-sm">
+                <form [formGroup]="form" (submit)="onSaveSermon()" *ngIf="!isLoading">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input id="title" class="form-control form-control-lg" formControlName="title" [ngClass]="{ 'is-invalid': form.get('title').invalid && form.get('title').touched }">
+                        <div class="invalid-feedback" *ngIf="form.get('title').invalid">
+                            Please enter a title.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="scripture">Scripture</label>
+                        <input id="scripture" class="form-control form-control-lg" formControlName="scripture" [ngClass]="{ 'is-invalid': form.get('scripture').invalid && form.get('scripture').touched }">
+                        <div class="invalid-feedback" *ngIf="form.get('scripture').invalid">
+                            Please enter a scripture.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="speaker">Speaker</label>
+                        <input id="speaker" class="form-control form-control-lg" formControlName="speaker" [ngClass]="{ 'is-invalid': form.get('speaker').invalid && form.get('speaker').touched }">
+                        <div class="invalid-feedback" *ngIf="form.get('speaker').invalid">
+                            Please enter a speaker.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date (MM/DD/YYYY)</label>
+                        <input id="date" class="form-control form-control-lg" formControlName="date" [ngClass]="{ 'is-invalid': form.get('date').invalid && form.get('date').touched }">
+                        <div class="invalid-feedback" *ngIf="form.get('date').invalid">
+                            Please enter a date.
+                        </div>
+                    </div>
+                    <div class="form-group" *ngIf="mode == 'edit' && !didMP3Upload">
+                        <label for="mp3Path">Current MP3:</label>
+                        <input id="mp3Path" class="form-control form-control-lg" value="{{ mp3Preview }}" disabled>
+                    </div>
+                    <div class="row justify-content-start">
+                        <div class="col-md-4">
+                            <p>
+                                <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="filePicker.click()" [ngClass]="{ 'btn-success': didMP3Upload }"><i class="fas fa-upload"></i> Upload MP3</button>
+                                <input type="file" (change)="onSelectMP3($event)" #filePicker>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" disabled *ngIf="form.invalid"><i class="far fa-save"></i> Save</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" *ngIf="!form.invalid"><i class="far fa-save"></i> Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
