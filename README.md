@@ -1,6 +1,6 @@
-# Admin
+# Warrior Center (CMS)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+CMS for church apps using Angular, TypeScript, Javascript, HTML, and CSS.
 
 ## Development server
 
