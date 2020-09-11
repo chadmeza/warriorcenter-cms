@@ -67,7 +67,7 @@ export class UsersService {
   changePassword(password: string) {
     const user: any = { password: password };
 
-    return this.http.post(`${environment.apiUrl}api/users/change-password`, user);
+    return this.http.put(`${environment.apiUrl}api/users/change-password`, user);
   }
 
   logout() {
